@@ -2,6 +2,14 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 
+export const serverStartMessage = async (req, res) => {
+  try {
+    res.status(200).json({"message": "Server started successfully"});
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
+
 /* REGISTER USER */
 export const register = async (req, res) => {
   try {
