@@ -6,6 +6,7 @@ export const createPost = async (req, res) => {
   try {
     const { userId, description, pictureBase } = req.body;
     const user = await User.findById(userId);
+
     const newPost = new Post({
       userId,
       firstName: user.firstName,
@@ -76,7 +77,7 @@ export const likePost = async (req, res) => {
 export const addCommentsToPost = async (req, res) => {
   try {
     const { postId } = req.params;
-    const { userId, commentText } = req.body;
+    const { commentText } = req.body;
 
     const post = await Post.findById(postId);
     post.comments.push(commentText);
