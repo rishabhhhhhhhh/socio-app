@@ -4,7 +4,7 @@ import User from "../models/User.js";
 /* CREATE */
 export const createPost = async (req, res) => {
   try {
-    const { userId, description, picturePath } = req.body;
+    const { userId, description, pictureBase } = req.body;
     const user = await User.findById(userId);
     const newPost = new Post({
       userId,
@@ -12,8 +12,8 @@ export const createPost = async (req, res) => {
       lastName: user.lastName,
       location: user.location,
       description,
-      userPicturePath: user.picturePath,
-      picturePath,
+      pictureBase,
+      userPictureBase: user.pictureBase,
       likes: {},
       comments: [],
     });
@@ -80,8 +80,6 @@ export const addCommentsToPost = async (req, res) => {
 
     const post = await Post.findById(postId);
     post.comments.push(commentText);
-
-    console.log("Comment text:" + commentText);
 
     const updatedPost = await Post.findByIdAndUpdate(
       postId,

@@ -9,6 +9,7 @@ const userIds = [
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
   new mongoose.Types.ObjectId(),
+  new mongoose.Types.ObjectId(),
 ];
 
 export const users = [
@@ -138,6 +139,22 @@ export const users = [
     impressions: 82970,
     createdAt: 1369908044,
     updatedAt: 1359322268,
+    __v: 0,
+  },
+  {
+    _id: userIds[8],
+    firstName: "Mike",
+    lastName: "Clarke",
+    email: "mc@gmail.com",
+    password: "mcmc123",
+    picturePath: "p9.jpeg",
+    friends: [],
+    location: "Washington, DC",
+    occupation: "A Student",
+    viewedProfile: 19420,
+    impressions: 82970,
+    createdAt: 1369908045,
+    updatedAt: 1359322269,
     __v: 0,
   },
 ];
