@@ -36,7 +36,11 @@ const postSchema = mongoose.Schema(
         userId: String,
         firstName: String,
         lastName: String,
-        commentText: String
+        commentText: String,
+        userPictureBase: {
+          type: String,
+          default: null
+        }
       }],
       default: []
     }

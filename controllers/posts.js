@@ -82,14 +82,16 @@ export const addCommentsToPost = async (req, res) => {
       userId,
       firstName,
       lastName,
-      commentText 
+      commentText,
+      userPictureBase
     } = req.body;
     
     const newComment = {
       userId,
       firstName,
       lastName,
-      commentText
+      commentText,
+      userPictureBase
     };
     
     const post = await Post.findById(postId);
