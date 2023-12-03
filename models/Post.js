@@ -29,11 +29,22 @@ const postSchema = mongoose.Schema(
     likes: {
       type: Map,
       of: Boolean,
+      default: {}
     },
     comments: {
-      type: Array,
-      default: [],
-    },
+      type: [{
+        userId: String,
+        firstName: String,
+        lastName: String,
+        commentText: String
+      }],
+      default: []
+    }
+    // comments: {
+    //   type: [mongoose.Schema.Types.Comment], 
+    //   ref: 'Comment',
+    //   default: []
+    // }
   },
   { timestamps: true }
 );

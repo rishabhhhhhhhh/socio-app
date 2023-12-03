@@ -77,10 +77,23 @@ export const likePost = async (req, res) => {
 export const addCommentsToPost = async (req, res) => {
   try {
     const { postId } = req.params;
-    const { commentText } = req.body;
-
+    
+    const { 
+      userId,
+      firstName,
+      lastName,
+      commentText 
+    } = req.body;
+    
+    const newComment = {
+      userId,
+      firstName,
+      lastName,
+      commentText
+    };
+    
     const post = await Post.findById(postId);
-    post.comments.push(commentText);
+    post.comments.push(newComment);
 
     const updatedPost = await Post.findByIdAndUpdate(
       postId,
